@@ -1,0 +1,22 @@
+# Python 3.12. Versions are the ones this was last run with.
+baseballcv==0.1.24
+pybaseball==2.2.7
+ultralytics==8.4.129
+opencv-python==4.11.0.86
+polars==1.44.1
+numpy==1.26.4
+scipy==1.17.1
+pandas==2.3.3
+matplotlib==3.11.1
+Pillow==12.3.0
+requests==2.34.2
+# baseballcv imports pkg_resources, which setuptools 81 removed
+setuptools<81
+# baseballcv installs a git dependency at import time and needs pip present
+pip
+# that git dependency wants tensorboard; a newer one drags protobuf past
+# what mediapipe (pulled in by baseballcv) can load
+tensorboard==2.19.0
+protobuf==4.25.9
+# newer pyarrow needs numpy 2, which the pins above rule out
+pyarrow==25.0.1
